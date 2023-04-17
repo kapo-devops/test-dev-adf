@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "ITVDataFactoryTutorial09-26-22-11-21-59"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"DealCloudRestAPI_GetToken_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'DealCloudRestAPI_GetToken'"
+		},
+		"Dynamics1_servicePrincipalCredential": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalCredential' of 'Dynamics1'"
+		},
+		"DealCloudRestAPI_GetToken_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://itventuresandbox.dealcloud.eu/api/rest/v1/oauth/token"
+		},
+		"DealCloudRestAPI_GetToken_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "17477"
+		},
+		"Dynamics1_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "6ce7f980-bd27-4dfd-a2cb-11dbe969229a"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ITVDataFactoryTutorial09-26-22-11-21-59_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"DealCloudRestAPI_GetToken_password": {
+						"value": "[parameters('DealCloudRestAPI_GetToken_password')]"
+					},
+					"Dynamics1_servicePrincipalCredential": {
+						"value": "[parameters('Dynamics1_servicePrincipalCredential')]"
+					},
+					"DealCloudRestAPI_GetToken_properties_typeProperties_url": {
+						"value": "[parameters('DealCloudRestAPI_GetToken_properties_typeProperties_url')]"
+					},
+					"DealCloudRestAPI_GetToken_properties_typeProperties_userName": {
+						"value": "[parameters('DealCloudRestAPI_GetToken_properties_typeProperties_userName')]"
+					},
+					"Dynamics1_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('Dynamics1_properties_typeProperties_servicePrincipalId')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

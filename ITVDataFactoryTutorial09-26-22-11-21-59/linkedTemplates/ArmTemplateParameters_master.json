@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ITVDataFactoryTutorial09-26-22-11-21-59"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"DealCloudRestAPI_GetToken_password": {
+			"value": ""
+		},
+		"Dynamics1_servicePrincipalCredential": {
+			"value": ""
+		},
+		"DealCloudRestAPI_GetToken_properties_typeProperties_url": {
+			"value": "https://itventuresandbox.dealcloud.eu/api/rest/v1/oauth/token"
+		},
+		"DealCloudRestAPI_GetToken_properties_typeProperties_userName": {
+			"value": "17477"
+		},
+		"Dynamics1_properties_typeProperties_servicePrincipalId": {
+			"value": "6ce7f980-bd27-4dfd-a2cb-11dbe969229a"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
