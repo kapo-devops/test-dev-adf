@@ -1,0 +1,9 @@
+{
+	"name": "ITVDataFactoryTutorial09-26-22-11-21-59",
+	"location": "UK South",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e0faddd0-2843-492e-8d4f-e91251b2b818",
+		"tenantId": "01382254-8b81-4369-885b-1aaeed3535f5"
+	}
+}

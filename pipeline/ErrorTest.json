@@ -1,0 +1,56 @@
+{
+	"name": "ErrorTest",
+	"properties": {
+		"activities": [
+			{
+				"name": "Call Logic App",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Set Error Message",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-07.uksouth.logic.azure.com:443/workflows/001b9f591b3148c1b06a8220fb07a688/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ihI-RYuymVlIfJdqeQomOrDi_Oi9Uby8nNnuzDHdEis",
+					"method": "POST",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"body": {
+						"value": "{\n    \"PipelineName\": \"@{pipeline().Pipeline}\",\n    \"datafactoryName\": \"@{pipeline().DataFactory}\",\n    \"errorMessage\": \"@{variables('errorMessage')}\"\n}",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set Error Message",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "errorMessage",
+					"value": "Test error message."
+				}
+			}
+		],
+		"variables": {
+			"errorMessage": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2022-12-05T15:31:32Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
