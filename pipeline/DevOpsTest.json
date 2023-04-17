@@ -1,0 +1,17 @@
+{
+	"name": "DevOpsTest",
+	"properties": {
+		"activities": [
+			{
+				"name": "TestWait",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 5
+				}
+			}
+		],
+		"annotations": []
+	}
+}
